@@ -21,7 +21,10 @@ class Link
   
 end
 
-def joseph(list, step)
+
+# solve the josephus problem given a linked list
+
+def josephus(list, step)
   
   link_to_update = list.head
   current_link = list.head
@@ -37,14 +40,8 @@ def joseph(list, step)
     
     return link_to_update.content if (link_to_update == current_link && step % 2 == 0)
     return current_link.content if (link_to_update == link_to_update.nxt && step % 2 == 1)
-    p "Link to update:"
-    p link_to_update
-    p "Current link"
-    p current_link
-    
     
     link_to_update.nxt = current_link
-    
     link_to_update = current_link
   end
   
@@ -64,4 +61,4 @@ nine.nxt = one
 list = LinkedList.new(one)
 
 
-joseph(list, 2)
+josephus(list, 2)
